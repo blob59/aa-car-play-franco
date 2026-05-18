@@ -4,26 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <meta name="theme-color" content="#071225">
-<title>AA Car Play Franco</title>
+<title>Franco Car Play</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;width:100%;height:100%;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#071225;color:#111827;overflow:hidden}
-body{background:linear-gradient(rgba(7,18,37,.58),rgba(7,18,37,.76)),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85") center/cover no-repeat fixed}
+body{background:linear-gradient(rgba(7,18,37,.58),rgba(7,18,37,.78)),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=85") center/cover no-repeat fixed}
 .app{width:100vw;height:100vh;padding:20px 4vw 24px;display:flex;flex-direction:column;gap:18px}
 header{min-height:86px;display:grid;grid-template-columns:150px 1fr 350px;align-items:center;gap:18px}
 .mic{font-size:42px;opacity:.45;filter:grayscale(1)}
 .brand{display:flex;justify-content:center;align-items:center;gap:18px}
 .logo{font-size:54px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35));animation:floaty 3s ease-in-out infinite}
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
-h1{margin:0;font-size:clamp(38px,4.5vw,70px);line-height:.95;letter-spacing:-2px;font-weight:900;color:rgba(10,15,31,.83);white-space:nowrap}
-.weather{justify-self:end;display:flex;align-items:center;gap:12px;padding:14px 22px;border-radius:999px;background:rgba(226,241,234,.78);backdrop-filter:blur(10px);box-shadow:0 12px 30px rgba(0,0,0,.15);font-size:26px;font-weight:850;white-space:nowrap}
+h1{margin:0;font-size:clamp(40px,4.8vw,76px);line-height:.95;letter-spacing:-2px;font-weight:950;color:rgba(245,247,255,.92);white-space:nowrap;text-shadow:0 8px 24px rgba(0,0,0,.35)}
+.weather{justify-self:end;display:flex;align-items:center;gap:12px;padding:14px 22px;border-radius:999px;background:rgba(226,241,234,.80);backdrop-filter:blur(10px);box-shadow:0 12px 30px rgba(0,0,0,.15);font-size:26px;font-weight:850;white-space:nowrap}
 .weather small{font-size:20px;font-weight:600;color:#6b7280}
 .grid{flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:22px;min-height:0}
 .card{border:0;border-radius:30px;background:rgba(255,255,255,.97);box-shadow:0 22px 50px rgba(0,0,0,.32);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;cursor:pointer;position:relative;overflow:hidden}
 .card:before{content:"";position:absolute;left:28px;right:28px;top:0;height:7px;border-radius:0 0 99px 99px;background:#fff;box-shadow:0 0 22px rgba(255,255,255,.85)}
 .card:active{transform:scale(.975)}
 .icon{font-size:62px;line-height:1}
-.label{font-size:clamp(28px,2.6vw,42px);font-weight:540;text-align:center;color:#171827}
+.label{font-size:clamp(28px,2.6vw,42px);font-weight:560;text-align:center;color:#171827}
 .hint{font-size:16px;color:#64748b;margin-top:-9px}
 .purple{color:#7c3aed}.red{color:#ef4444}.blue{color:#0ea5e9}.green{color:#22c55e}.gray{color:#64748b}.teal{color:#14b8a6}.orange{color:#f97316}
 .panel{position:fixed;inset:0;z-index:20;background:rgba(3,7,18,.94);backdrop-filter:blur(14px);display:none;padding:18px}
@@ -32,7 +32,7 @@ h1{margin:0;font-size:clamp(38px,4.5vw,70px);line-height:.95;letter-spacing:-2px
 .panel-title{font-size:34px;font-weight:900}
 .actions{display:flex;gap:10px}
 .btn{border:0;border-radius:18px;padding:14px 20px;font-size:20px;font-weight:850;background:white;color:#111827;cursor:pointer;text-decoration:none}
-.btn.dark{background:#111827;color:white}.btn.red{background:#ef4444;color:white}.btn.green{background:#16a34a;color:white}
+.btn.dark{background:#111827;color:white}.btn.red{background:#ef4444;color:white}.btn.green{background:#16a34a;color:white}.btn.blue{background:#2563eb;color:white}
 .panel-body{flex:1;min-height:0;background:#f8fafc;border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
 .screen{flex:1;overflow:auto;padding:24px}
 .notice{font-size:25px;line-height:1.45;max-width:1050px;margin:0 auto}
@@ -46,57 +46,71 @@ h1{margin:0;font-size:clamp(38px,4.5vw,70px);line-height:.95;letter-spacing:-2px
 audio{width:100%}
 .stations{overflow:auto;padding:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;background:#eef2f7}
 .station small{font-size:15px;color:#64748b;font-weight:700}
-.browserbox{display:flex;gap:12px;flex-wrap:wrap;background:white;border-radius:22px;padding:16px;margin-bottom:18px;box-shadow:0 10px 25px rgba(15,23,42,.08)}
+.browserbox,.m3ubox{display:flex;gap:12px;flex-wrap:wrap;background:white;border-radius:22px;padding:16px;margin-bottom:18px;box-shadow:0 10px 25px rgba(15,23,42,.08)}
 input{flex:1;min-width:250px;font-size:22px;border:1px solid #cbd5e1;border-radius:16px;padding:15px}
-.tv-layout{height:100%;display:grid;grid-template-columns:360px 1fr;min-height:0}
+.tv-layout{height:100%;display:grid;grid-template-columns:390px 1fr;min-height:0}
 .tv-list{background:#eef2f7;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
-.tv-view{background:#020617;display:flex;align-items:center;justify-content:center;color:white;min-width:0}
+.tv-view{background:#020617;display:flex;align-items:center;justify-content:center;color:white;min-width:0;position:relative}
 video{width:100%;height:100%;background:#020617}
+.tv-help{font-size:27px;text-align:center;padding:30px;line-height:1.35}
+.tv-help span{font-size:20px;color:#94a3b8}
 .speedo{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(circle,#1e293b,#020617);color:white;text-align:center}
 .speed{font-size:clamp(120px,18vw,260px);font-weight:950;line-height:.9}
 .kmh{font-size:46px;font-weight:850;color:#cbd5e1}
 .gps{max-width:850px;font-size:22px;color:#cbd5e1;margin-top:25px;line-height:1.5}
-@media(max-width:950px){html,body{height:auto;min-height:100%;overflow:auto}.app{height:auto;min-height:100vh;padding:18px}header{grid-template-columns:1fr;gap:8px;text-align:center}.mic{display:none}.logo{font-size:42px}h1{font-size:42px;white-space:normal}.weather{justify-self:center;font-size:22px}.weather small{font-size:16px}.grid{grid-template-columns:1fr;grid-auto-rows:minmax(150px,auto)}.playerbar{grid-template-columns:1fr}.tv-layout{grid-template-columns:1fr;grid-template-rows:260px 1fr}.tv-list{order:2}.tv-view{order:1}}
-@media(orientation:landscape) and (max-height:760px){.app{padding:14px 3vw 18px;gap:12px}header{min-height:70px;grid-template-columns:120px 1fr 310px}.mic{font-size:34px}.logo{font-size:42px}h1{font-size:44px}.weather{font-size:22px;padding:10px 18px}.weather small{font-size:16px}.grid{gap:14px}.icon{font-size:46px}.label{font-size:28px}.card{border-radius:24px}}
+@media(max-width:950px){html,body{height:auto;min-height:100%;overflow:auto}.app{height:auto;min-height:100vh;padding:18px}header{grid-template-columns:1fr;gap:8px;text-align:center}.mic{display:none}.logo{font-size:42px}h1{font-size:42px;white-space:normal}.weather{justify-self:center;font-size:22px}.weather small{font-size:16px}.grid{grid-template-columns:1fr;grid-auto-rows:minmax(150px,auto)}.playerbar{grid-template-columns:1fr}.tv-layout{grid-template-columns:1fr;grid-template-rows:310px 1fr}.tv-list{order:2}.tv-view{order:1}}
+@media(orientation:landscape) and (max-height:760px){.app{padding:14px 3vw 18px;gap:12px}header{min-height:70px;grid-template-columns:120px 1fr 310px}.mic{font-size:34px}.logo{font-size:42px}h1{font-size:48px}.weather{font-size:22px;padding:10px 18px}.weather small{font-size:16px}.grid{gap:14px}.icon{font-size:46px}.label{font-size:28px}.card{border-radius:24px}}
 </style>
 </head>
 <body>
 <main class="app">
-<header><div class="mic">🎙️</div><div class="brand"><div class="logo">🚙</div><h1>AA Car Play Video</h1></div><div class="weather">🌥️ <b>15°C</b> <small>Olgiate Molgora</small></div></header>
+<header><div class="mic">🎙️</div><div class="brand"><div class="logo">🚘</div><h1>Franco Car Play</h1></div><div class="weather">🌥️ <b>15°C</b> <small>Olgiate Molgora</small></div></header>
 <section class="grid">
 <button class="card" onclick="openApps()"><div class="icon purple">▦</div><div class="label">App</div><div class="hint">scorciatoie</div></button>
 <button class="card" onclick="openExternal('https://www.youtubekids.com/')"><div class="icon red">▶️</div><div class="label">YouTube Kids</div><div class="hint">apre fuori</div></button>
 <button class="card" onclick="openExternal('https://music.youtube.com/')"><div class="icon red">⏯️</div><div class="label">YouTube Music</div><div class="hint">apre fuori</div></button>
 <button class="card" onclick="openPodcasts()"><div class="icon purple">🎙️</div><div class="label">Podcast</div><div class="hint">link rapidi</div></button>
 <button class="card" onclick="openSettings()"><div class="icon gray">⚙️</div><div class="label">Impostazioni</div><div class="hint">info app</div></button>
-<button class="card" onclick="openMirror()"><div class="icon blue">📺</div><div class="label">Mirroring Schermo</div><div class="hint">modulo realistico</div></button>
+<button class="card" onclick="openMirror()"><div class="icon blue">📺</div><div class="label">Mirroring</div><div class="hint">modulo realistico</div></button>
 <button class="card" onclick="openRadio()"><div class="icon orange">📻</div><div class="label">Radio</div><div class="hint">player interno</div></button>
 <button class="card" onclick="openMusic()"><div class="icon red">🎵</div><div class="label">Musica</div><div class="hint">file MP3</div></button>
 <button class="card" onclick="openTachimetro()"><div class="icon red">🏎️</div><div class="label">Tachimetro</div><div class="hint">GPS/demo</div></button>
 <button class="card" onclick="openExternal('https://www.youtube.com/')"><div class="icon red">▶️</div><div class="label">YouTube</div><div class="hint">apre fuori</div></button>
 <button class="card" onclick="openBrowser()"><div class="icon teal">🌐</div><div class="label">Browser web</div><div class="hint">preferiti</div></button>
-<button class="card" onclick="openTV()"><div class="icon green">📺</div><div class="label">TV</div><div class="hint">link e flussi</div></button>
+<button class="card" onclick="openTV()"><div class="icon green">📺</div><div class="label">TV / M3U</div><div class="hint">incolla playlist</div></button>
 </section></main>
+
 <section id="panel" class="panel"><div class="panel-head"><div id="panelTitle" class="panel-title">Titolo</div><div class="actions"><button class="btn" onclick="goFull()">Schermo intero</button><button class="btn red" onclick="closePanel()">Chiudi</button></div></div><div id="panelBody" class="panel-body"></div></section>
+
 <script>
 const panel=document.getElementById("panel"),panelTitle=document.getElementById("panelTitle"),panelBody=document.getElementById("panelBody");let watchId=null;
 function openPanel(t,h){stopGps();panelTitle.textContent=t;panelBody.innerHTML=h;panel.classList.add("open")}
 function closePanel(){stopGps();panel.classList.remove("open");panelBody.innerHTML=""}
 function goFull(){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(()=>{})}
 function openExternal(u){window.open(u,"_blank","noopener,noreferrer")}
-function openApps(){openPanel("App",`<div class="screen"><div class="notice"><h2>Scorciatoie rapide</h2><p>Qui mettiamo i pulsanti utili: quelli che non fanno scena, ma salvano la giornata.</p><div class="tilegrid"><button class="fav" onclick="openExternal('https://www.google.com/maps')">🗺️ Google Maps</button><button class="fav" onclick="openExternal('https://web.whatsapp.com')">💬 WhatsApp Web</button><button class="fav" onclick="openExternal('https://www.francoficara.com')">🌐 Franco Ficara</button><button class="fav" onclick="openRadio()">📻 Radio</button><button class="fav" onclick="openTV()">📺 TV</button><button class="fav" onclick="openBrowser()">🔎 Browser</button></div></div></div>`)}
-function openSettings(){openPanel("Impostazioni",`<div class="screen"><div class="notice"><h2>Impostazioni</h2><p><b>Versione web Cloudflare.</b> Funziona da browser, telefono e autoradio Android con browser.</p><p>Per Android Auto ufficiale serve un APK. Qui stiamo costruendo il cuore grafico e funzionale, pulito e modificabile.</p><div class="tilegrid"><div class="fav">🚗 Schermo intero</div><div class="fav">📻 Radio interne</div><div class="fav">📺 TV con player HTML5</div><div class="fav">🎵 MP3 locali</div></div></div></div>`)}
-function openMirror(){openPanel("Mirroring Schermo",`<div class="screen"><div class="notice"><h2>Mirroring Schermo</h2><p>Da una pagina web Cloudflare il mirroring vero non si può fare. Serve un'app Android con permessi specifici oppure un'autoradio Android libera.</p><div class="tilegrid"><button class="fav" onclick="openExternal('https://www.google.com/search?q=screen+mirroring+android')">🔎 Cerca strumenti</button><button class="fav" onclick="openApps()">⬅️ Torna alle app</button></div></div></div>`)}
-function openPodcasts(){openPanel("Podcast",`<div class="screen"><div class="notice"><h2>Podcast</h2><p>I servizi grossi si aprono fuori, perché dentro i riquadri si difendono come castelli medievali.</p><div class="tilegrid"><button class="fav" onclick="openExternal('https://open.spotify.com/genre/podcasts-web')">🎧 Spotify Podcast</button><button class="fav" onclick="openExternal('https://www.raiplaysound.it')">📻 RaiPlay Sound</button><button class="fav" onclick="openExternal('https://podcasts.google.com')">🎙️ Google Podcast</button></div></div></div>`)}
+
+function openApps(){openPanel("App",`<div class="screen"><div class="notice"><h2>Scorciatoie rapide</h2><p>Una plancia pulita: pochi bottoni, grossi, utili. Niente coriandoli inutili.</p><div class="tilegrid"><button class="fav" onclick="openExternal('https://www.google.com/maps')">🗺️ Google Maps</button><button class="fav" onclick="openExternal('https://web.whatsapp.com')">💬 WhatsApp Web</button><button class="fav" onclick="openExternal('https://www.francoficara.com')">🌐 Franco Ficara</button><button class="fav" onclick="openRadio()">📻 Radio</button><button class="fav" onclick="openTV()">📺 TV / M3U</button><button class="fav" onclick="openBrowser()">🔎 Browser</button></div></div></div>`)}
+
+function openSettings(){openPanel("Impostazioni",`<div class="screen"><div class="notice"><h2>Impostazioni</h2><p><b>Franco Car Play</b> è una web app Cloudflare: funziona da browser, telefono e autoradio Android con browser.</p><p>Per Android Auto ufficiale serve un APK vero. Qui però hai il cuore grafico e funzionale, modificabile senza impazzire con Android Studio.</p><div class="tilegrid"><div class="fav">🚗 Schermo intero</div><div class="fav">📻 Radio interne</div><div class="fav">📺 Campo M3U/M3U8</div><div class="fav">🎵 MP3 locali</div></div></div></div>`)}
+
+function openMirror(){openPanel("Mirroring",`<div class="screen"><div class="notice"><h2>Mirroring Schermo</h2><p>Da Cloudflare il mirroring vero non si può fare: serve un'app Android con permessi speciali oppure un'autoradio Android libera.</p><div class="tilegrid"><button class="fav" onclick="openExternal('https://www.google.com/search?q=screen+mirroring+android')">🔎 Cerca strumenti</button><button class="fav" onclick="openApps()">⬅️ Torna alle app</button></div></div></div>`)}
+
+function openPodcasts(){openPanel("Podcast",`<div class="screen"><div class="notice"><h2>Podcast</h2><p>I servizi grandi si aprono fuori: dentro i riquadri spesso si chiudono come castelli col ponte levatoio.</p><div class="tilegrid"><button class="fav" onclick="openExternal('https://open.spotify.com/genre/podcasts-web')">🎧 Spotify Podcast</button><button class="fav" onclick="openExternal('https://www.raiplaysound.it')">📻 RaiPlay Sound</button><button class="fav" onclick="openExternal('https://podcasts.google.com')">🎙️ Google Podcast</button></div></div></div>`)}
+
 function openRadio(){openPanel("Radio",`<div class="radio-shell"><div class="playerbar"><div class="now" id="now">Scegli una radio</div><audio id="radio" controls autoplay></audio></div><div class="stations"><button class="station" onclick="openExternal('https://qaw5mt.jdoodle.io')">🌊 Radio Luma <small>link personale</small></button><button class="station" onclick="playRadio('Virgin Radio','http://icecast.unitedradio.it/Virgin.mp3')">🎸 Virgin Radio <small>stream diretto</small></button><button class="station" onclick="playRadio('Radio 105','http://icecast.unitedradio.it/Radio105.mp3')">🔥 Radio 105 <small>stream diretto</small></button><button class="station" onclick="playRadio('Rai Radio 1','http://icestreaming.rai.it/1.mp3')">🇮🇹 Rai Radio 1 <small>stream diretto</small></button><button class="station" onclick="playRadio('Rai Radio 3','http://icestreaming.rai.it/3.mp3')">🎼 Rai Radio 3 <small>stream diretto</small></button><button class="station" onclick="playRadio('Swiss Jazz','https://stream.srg-ssr.ch/m/rsj/mp3_128')">🎷 Swiss Jazz <small>stream diretto</small></button><button class="station" onclick="playRadio('SomaFM','https://ice1.somafm.com/groovesalad-128-mp3')">🌀 SomaFM <small>stream diretto</small></button><button class="station" onclick="openExternal('https://www.italia.fm')">📻 Italia.FM <small>catalogo</small></button></div></div>`)}
 function playRadio(n,u){document.getElementById("now").textContent="In riproduzione: "+n;const a=document.getElementById("radio");a.src=u;a.play().catch(()=>alert("Autoplay bloccato: premi Play."))}
+
 function openMusic(){openPanel("Musica locale",`<div class="screen"><div class="notice"><h2>Musica locale MP3</h2><p>Scegli un file audio dal dispositivo. Non viene caricato online.</p><input type="file" accept="audio/*" onchange="loadLocalAudio(event)" style="width:100%;margin:16px 0;background:white"><audio id="localAudio" controls style="width:100%;background:white;border-radius:18px"></audio></div></div>`)}
 function loadLocalAudio(e){const f=e.target.files[0];if(!f)return;const a=document.getElementById("localAudio");a.src=URL.createObjectURL(f);a.play().catch(()=>{})}
+
 function openBrowser(){openPanel("Browser web",`<div class="screen"><div class="browserbox"><input id="urlInput" placeholder="Scrivi un sito, es. francoficara.com" onkeydown="if(event.key==='Enter')browseUrl()"><button class="btn dark" onclick="browseUrl()">Apri</button></div><div class="tilegrid"><button class="fav" onclick="openExternal('https://www.google.com')">🔎 Google</button><button class="fav" onclick="openExternal('https://www.youtube.com')">▶️ YouTube</button><button class="fav" onclick="openExternal('https://www.italia.fm')">📻 Italia.FM</button><button class="fav" onclick="openExternal('https://www.francoficara.com')">🌐 FrancoFicara.com</button><button class="fav" onclick="openExternal('https://www.google.com/maps')">🗺️ Maps</button><button class="fav" onclick="openExternal('https://www.raiplaysound.it')">🎙️ RaiPlay Sound</button></div></div>`)}
 function browseUrl(){let u=document.getElementById("urlInput").value.trim();if(!u)return;if(!/^https?:\/\//i.test(u))u="https://"+u;openExternal(u)}
-function openTV(){openPanel("TV",`<div class="tv-layout"><div class="tv-list"><button class="tvitem" onclick="openExternal('https://www.raiplay.it/dirette/rai1')">Rai 1 - esterno</button><button class="tvitem" onclick="openExternal('https://www.raiplay.it/dirette/rai2')">Rai 2 - esterno</button><button class="tvitem" onclick="openExternal('https://www.raiplay.it/dirette/rai3')">Rai 3 - esterno</button><button class="tvitem" onclick="openExternal('https://www.mediasetinfinity.mediaset.it/dirette-tv')">Mediaset Infinity - esterno</button><button class="tvitem" onclick="loadVideo('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">Test HLS</button><button class="tvitem" onclick="customM3U()">Incolla link M3U8/MP4</button></div><div class="tv-view" id="tvView"><div style="font-size:28px;text-align:center;padding:30px">Scegli un canale o incolla un flusso video.<br><br><span style="font-size:20px;color:#94a3b8">Molti canali ufficiali bloccano l'incorporamento.</span></div></div></div>`)}
-function loadVideo(u){document.getElementById("tvView").innerHTML='<video id="videoPlayer" controls autoplay playsinline></video>';const v=document.getElementById("videoPlayer");v.src=u;v.play().catch(()=>{})}
-function customM3U(){const u=prompt("Incolla link diretto M3U8 o MP4:");if(u)loadVideo(u.trim())}
+
+function openTV(){openPanel("TV / M3U",`<div class="tv-layout"><div class="tv-list"><div class="m3ubox"><input id="m3uInput" placeholder="Incolla link M3U8, MP4 o pagina TV"><button class="btn blue" onclick="openM3U()">Apri</button></div><button class="tvitem" onclick="openExternal('https://www.raiplay.it/dirette/rai1')">Rai 1 - esterno</button><button class="tvitem" onclick="openExternal('https://www.raiplay.it/dirette/rai2')">Rai 2 - esterno</button><button class="tvitem" onclick="openExternal('https://www.raiplay.it/dirette/rai3')">Rai 3 - esterno</button><button class="tvitem" onclick="openExternal('https://www.mediasetinfinity.mediaset.it/dirette-tv')">Mediaset Infinity - esterno</button><button class="tvitem" onclick="loadVideo('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8')">Test M3U8</button><button class="tvitem" onclick="clearTV()">Pulisci schermo</button></div><div class="tv-view" id="tvView"><div class="tv-help">Incolla un link M3U8 / MP4 oppure apri un canale esterno.<br><br><span>Nota sincera: molti canali ufficiali bloccano il player interno. I link diretti M3U8 funzionano meglio.</span></div></div></div>`)}
+function openM3U(){let u=document.getElementById("m3uInput").value.trim();if(!u){alert("Incolla prima un link.");return}if(!/^https?:\/\//i.test(u))u="https://"+u;if(u.includes(".m3u8")||u.includes(".mp4")||u.includes(".webm")||u.includes(".ogg")){loadVideo(u)}else{openExternal(u)}}
+function loadVideo(u){document.getElementById("tvView").innerHTML='<video id="videoPlayer" controls autoplay playsinline></video>';const v=document.getElementById("videoPlayer");v.src=u;v.play().catch(()=>alert("Il browser ha bloccato l'avvio: premi Play."))}
+function clearTV(){document.getElementById("tvView").innerHTML='<div class="tv-help">Schermo pulito.<br><br><span>Incolla un link diretto M3U8/MP4 o scegli un pulsante.</span></div>'}
+
 function openTachimetro(){openPanel("Tachimetro",`<div class="speedo"><div class="speed" id="speedValue">0</div><div class="kmh">km/h</div><div class="gps"><button class="btn green" onclick="startGps()">Attiva GPS</button> <button class="btn" onclick="demoSpeed()">Demo</button><p>Il GPS può funzionare da telefono/browser, ma su Android Auto o alcuni browser può essere bloccato.</p></div></div>`)}
 function startGps(){if(!navigator.geolocation){alert("GPS non supportato.");return}watchId=navigator.geolocation.watchPosition(p=>{const m=p.coords.speed;document.getElementById("speedValue").textContent=m===null?0:Math.round(m*3.6)},()=>alert("GPS non disponibile o permesso negato."),{enableHighAccuracy:true,maximumAge:1000,timeout:8000})}
 function stopGps(){if(watchId!==null){navigator.geolocation.clearWatch(watchId);watchId=null}}
